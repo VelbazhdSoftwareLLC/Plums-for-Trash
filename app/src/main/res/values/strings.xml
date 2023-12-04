@@ -1,0 +1,41 @@
+<resources>
+
+    <string name="about_text">
+Plums for Trash for Android version 1.0
+\n
+Copyrights (C) 2023 Miroslav Garigov, Svetlin Georgiev, Todor Balabanov
+\n
+\n
+art by Miroslav Garigov
+programming by Svetlin Georgiev ( svetlin2002@gmail.com ) and Todor Balabanov ( todor.balabanov@gmail.com  )
+\n
+Sofia, Bulgaria
+    </string>
+    <string name="help_text">
+\tPlums for Trash is a card game created by Miroslav Garigov, it is meant to be played by two to five players. It is published by NASTOLA Games.
+\n
+\n
+\tSet up: Each player receives containers for glass, paper, plastic and organic waste. A waste dump is formed and a plum card market is created.
+\n
+\n
+\tThe first player: The player that goes first, is the player that has eaten plums the most recently. After that the play goes in a clock wise fashion.
+\n
+\n
+\tGameplay: On each turn, players sort waste by placing it in their bins, then have the option to exchange it for plums if they have enough collected waste.
+\n
+\n
+\tScoring: The player who exchanges the most Plums for Trash wins the game.
+\n
+\n
+\tSpecial Cards: In addition to waste, the dump also hides special cards that can help players trade more plums by outsmarting others. Some of those cards allow the player to take cards from other players, trade cards with them, or make them return cards back into the dump pile.
+\n
+\n
+\tScoring: The player who exchanges the most Plums for Trash wins the game.
+\n
+\n
+\tIn case of a draw: If a draw in points happens, the player with the highest number of plums on it wins(if one player has a card that gives 5 plums, while the other has a card that has 6, the second player wins)"</string>
+    <string name="app_name">Plums for Trash</string>
+    <string name="redirect_activity_is_missing_message">Redirect activity is missing!</string>
+    <string name="single_player_game_label">Single Player Game</string>
+    <string name="exit_game_label">Exit Game</string>
+</resources>
