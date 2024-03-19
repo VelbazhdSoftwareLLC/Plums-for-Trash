@@ -1,0 +1,4 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="plums_for_trash" parent="Theme.AppCompat.Light.DarkActionBar" />
+</resources>
