@@ -1,29 +1,22 @@
 package eu.veldsoft.plums.trash;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 /**
  * Initial menu screen.
  */
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends Activity {
 
     /**
      * {@inheritDoc}
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*
-         * Call the super class's onCreate method to perform necessary initialization.
-         */
         super.onCreate(savedInstanceState);
 
-        /*
-         * Set the content view of this activity to the layout defined in 'activity_menu.xml'.
-         */
         setContentView(R.layout.activity_menu);
 
         /*
