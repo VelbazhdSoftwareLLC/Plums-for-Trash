@@ -1,12 +1,11 @@
 package eu.veldsoft.plums.trash;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -14,7 +13,7 @@ import java.util.TimerTask;
 /**
  * Initial splash screen.
  */
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends Activity {
     /**
      * Timeout to switch to product functional screens.
      */
