@@ -16,11 +16,12 @@ class PlumCard extends Card {
     /**
      * Constructor with all parameters.
      *
+     * @param key   Key value used in some collections.
      * @param value Value of the plums.
      * @param trash List of containers for trash in this card.
      */
-    PlumCard(int value, Class... trash) {
-        super();
+    PlumCard(String key, int value, Class... trash) {
+        super(key);
 
         this.value = value;
         this.trash = trash;

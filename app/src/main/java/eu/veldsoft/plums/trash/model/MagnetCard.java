@@ -15,10 +15,11 @@ class MagnetCard extends Card {
     /**
      * Constructor with all parameters.
      *
+     * @param key   Key value used in some collections.
      * @param trash List of containers for trash in this card.
      */
-    MagnetCard(Class... trash) {
-        super();
+    MagnetCard(String key, Class... trash) {
+        super(key);
 
         this.trash = trash;
         Arrays.sort(this.trash);

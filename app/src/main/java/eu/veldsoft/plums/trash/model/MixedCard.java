@@ -15,10 +15,11 @@ class MixedCard extends Card {
     /**
      * Constructor with all parameters.
      *
+     * @param key   Key value used in some collections.
      * @param trash List of containers for trash in this card.
      */
-    MixedCard(Class... trash) {
-        super();
+    MixedCard(String key, Class... trash) {
+        super(key);
 
         this.trash = trash;
         Arrays.sort(this.trash);
