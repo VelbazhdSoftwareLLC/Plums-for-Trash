@@ -38,4 +38,6 @@ Sofia, Bulgaria
     <string name="redirect_activity_is_missing_message">Redirect activity is missing!</string>
     <string name="single_player_game_label">Single Player Game</string>
     <string name="exit_game_label">Exit Game</string>
+    <string name="new_game_menu">New Game</string>
+    <string name="exit_menu">Exit</string>
 </resources>

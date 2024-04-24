@@ -2,6 +2,8 @@ package eu.veldsoft.plums.trash;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -120,5 +122,16 @@ public class GameActivity extends Activity {
             CARDS_IMAGES.put("quest_v5_en_15", R.drawable.quest_v5_en_15);
             CARDS_IMAGES.put("quest_v5_en_16", R.drawable.quest_v5_en_16);
         }
+    }
+
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.game_option_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
