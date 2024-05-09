@@ -1,6 +1,7 @@
 package eu.veldsoft.plums.trash.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,4 +19,50 @@ final public class Board {
      * List of the players around the board.
      */
     private List<Player> players = new ArrayList<Player>();
+
+    /**
+     * The player who is playing at the moment.
+     */
+    private Player playing = null;
+
+    /**
+     * The game goes in turns.
+     */
+    private int round = 0;
+
+    /**
+     * Start new game or restart current game.
+     *
+     * @param playersNames List with the names of the players.
+     * @return True if the game starts, false otherwise.
+     */
+    public boolean newGame(String[] playersNames) {
+        if (playersNames.length < 2 || 6 < playersNames.length) {
+            return false;
+        }
+
+        /*
+         * The maximum number of players is 6.
+         */
+        players.clear();
+        for (String name : playersNames) {
+            players.add(new Player(name));
+        }
+
+        //TODO It is better each player to be able to be in each order.
+        Collections.shuffle(players);
+
+        /*
+         * The first player plays after start of the game.
+         */
+        playing = ((players.size() <= 0) ? null : players.get(0));
+
+        /*
+         * In the real life counting usually starts from one, not from zero.
+         */
+        round = 1;
+
+        return true;
+    }
+
 }

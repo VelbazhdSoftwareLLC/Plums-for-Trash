@@ -42,4 +42,7 @@ Sofia, Bulgaria
     <string name="help_menu">Help</string>
     <string name="about_menu">About</string>
     <string name="exit_menu">Exit</string>
+    <string name="computer_label">Computer</string>
+    <string name="game_not_started_text">Game did not start!</string>
+    <string name="players_done_text">Done</string>
 </resources>

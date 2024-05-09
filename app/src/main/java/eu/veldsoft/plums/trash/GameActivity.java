@@ -6,9 +6,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import eu.veldsoft.plums.trash.model.Board;
 
 
 /**
@@ -16,9 +21,28 @@ import java.util.Map;
  */
 public class GameActivity extends Activity {
     /**
+     * The identifier for launching activity.
+     */
+    private static final int LAUNCH_PLAYERS_LIST_ACTIVITY = 1;
+
+    /**
      * Map of the card key and card image.
      */
     static final Map<String, Integer> CARDS_IMAGES = new HashMap<String, Integer>();
+
+    /**
+     * The link between view layer and object model is the instance of the Board class. It is static because it will be needed in other activities.
+     */
+    private static Board board = new Board();
+
+    /**
+     * Get board reference.
+     *
+     * @return The board reference.
+     */
+    static Board board() {
+        return board;
+    }
 
     /**
      * {@inheritDoc}
@@ -142,6 +166,10 @@ public class GameActivity extends Activity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.new_game) {
+            startActivityForResult(new Intent(GameActivity.this, NumberOfPlayersActivity.class), LAUNCH_PLAYERS_LIST_ACTIVITY);
+        }
+
         if (item.getItemId() == R.id.help) {
             startActivity(new Intent(GameActivity.this, HelpActivity.class));
         }
@@ -155,5 +183,50 @@ public class GameActivity extends Activity {
         }
 
         return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        /*
+         * Do not handle other results than OK.
+         */
+        if (resultCode != RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == LAUNCH_PLAYERS_LIST_ACTIVITY) {
+            List<String> names = new ArrayList<String>();
+
+            if (data.getBooleanExtra("player1Enabled", false)) {
+                names.add(data.getCharSequenceExtra("player1Name").toString());
+            }
+            if (data.getBooleanExtra("player2Enabled", false)) {
+                names.add(data.getCharSequenceExtra("player2Name").toString());
+            }
+            if (data.getBooleanExtra("player3Enabled", false)) {
+                names.add(data.getCharSequenceExtra("player3Name").toString());
+            }
+            if (data.getBooleanExtra("player4Enabled", false)) {
+                names.add(data.getCharSequenceExtra("player4Name").toString());
+            }
+            if (data.getBooleanExtra("player5Enabled", false)) {
+                names.add(data.getCharSequenceExtra("player5Name").toString());
+            }
+            if (data.getBooleanExtra("player6Enabled", false)) {
+                names.add(data.getCharSequenceExtra("player6Name").toString());
+            }
+
+            /*
+             * Convert the list of names to array of names.
+             */
+            if (board.newGame(names.toArray(new String[0])) == false) {
+                Toast.makeText(GameActivity.this, R.string.game_not_started_text, Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }

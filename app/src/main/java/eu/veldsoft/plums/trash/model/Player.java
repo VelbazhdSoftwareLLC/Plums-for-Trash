@@ -7,15 +7,25 @@ import java.util.List;
  * Player class describes the players' characteristics.
  */
 class Player {
+
     /**
-     * Playr's containers.
+     * The name of the player.
+     */
+    private String name = "";
+
+    /**
+     * Player's containers.
      */
     private List<Container> containers = new ArrayList<Container>();
 
     /**
-     * Constructor without parameters.
+     * Constructor with name of the player.
+     *
+     * @param name The name of the player.
      */
-    public Player() {
+    Player(String name) {
+        this.name = name;
+
         containers.add(new GlassContainer());
         containers.add(new PaperContainer());
         containers.add(new PlasticContainer());
