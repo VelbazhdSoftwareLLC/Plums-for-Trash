@@ -9,10 +9,8 @@ import java.util.List;
  */
 final public class Board {
     /**
-     * Deck of cards for the game.
+     * Dump with trash cards.
      */
-    //private Deck deck = new Deck();
-
     private Dump dump = new Dump();
 
     /**

@@ -14,7 +14,7 @@ abstract class Deck {
     protected List<Card> CARDS = new ArrayList<>();
 
     /**
-     * LIst of cards for a specific game.
+     * List of cards for a specific game.
      */
     protected List<Card> cards = new ArrayList<>();
 
@@ -35,6 +35,15 @@ abstract class Deck {
         }
 
         return cards.remove(0);
+    }
+
+    /**
+     * Check if the deck is empty.
+     *
+     * @return True if the deck is empty, false otherwise.
+     */
+    public boolean isEmpty() {
+        return cards.isEmpty();
     }
 
 }
