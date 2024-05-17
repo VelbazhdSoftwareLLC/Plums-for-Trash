@@ -10,12 +10,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 /**
  * Number of players ane their names.
  */
-public class NumberOfPlayersActivity extends AppCompatActivity {
+public class NumberOfPlayersActivity extends Activity {
 
     /**
      * {@inheritDoc}

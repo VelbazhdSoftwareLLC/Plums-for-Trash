@@ -22,7 +22,7 @@ class MixedCard extends Card {
         super(key);
 
         this.trash = trash;
-        Arrays.sort(this.trash);
+        Arrays.sort(this.trash, (c1, c2) -> c1.getName().compareTo(c2.getName()));
     }
 
     //TODO Add method for trash container checking.
