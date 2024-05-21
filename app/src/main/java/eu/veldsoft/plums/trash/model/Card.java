@@ -26,4 +26,15 @@ abstract class Card {
     String key() {
         return key;
     }
+
+    /**
+     * Check if the card can fit in the container.
+     *
+     * @param container Container to check.
+     * @return True if the card can fit in the container, false otherwise.
+     */
+    public boolean fitContainer(Class container) {
+        return false;
+    }
+
 }

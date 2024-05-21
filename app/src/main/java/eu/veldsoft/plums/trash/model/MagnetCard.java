@@ -25,5 +25,19 @@ class MagnetCard extends Card {
         Arrays.sort(this.trash, (c1, c2) -> c1.getName().compareTo(c2.getName()));
     }
 
+    /**
+     * Check if the card can fit in the container.
+     *
+     * @param container Container to check.
+     * @return True if the card can fit in the container, false otherwise.
+     */
+    public boolean fitContainer(Class container) {
+        if (container == SpecialContainer.class) {
+            return true;
+        }
+
+        return false;
+    }
+
     //TODO Add method for trash container checking.
 }

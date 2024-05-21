@@ -9,6 +9,11 @@ import java.util.List;
  */
 final public class Board {
     /**
+     * Market with plums cards.
+     */
+    private Market market = new Market();
+
+    /**
      * Dump with trash cards.
      */
     private Dump dump = new Dump();
@@ -54,6 +59,12 @@ final public class Board {
          * The first player plays after start of the game.
          */
         playing = ((players.size() <= 0) ? null : players.get(0));
+
+        /*
+         * Create new market and dump.
+         */
+        market = new Market();
+        dump = new Dump();
 
         /*
          * In the real life counting usually starts from one, not from zero.
