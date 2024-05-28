@@ -41,6 +41,17 @@ class Player {
     }
 
     /**
+     * Reset the initial state of the player.
+     */
+    public void reset() {
+        for (Container c : containers) {
+            c.reset();
+        }
+
+        bought.clear();
+    }
+
+    /**
      * Get the name of the player.
      *
      * @return The name of the player.
@@ -64,6 +75,13 @@ class Player {
      * @param card Card to keep.
      */
     public void keep(Card card) {
-        //TODO Sort the card into the right container.
+        for (Container c : containers) {
+            if (!card.fitContainer(c.getClass())) {
+                continue;
+            }
+
+            /* Have in mind that a single  card can appear in many containers */
+            c.put(card);
+        }
     }
 }

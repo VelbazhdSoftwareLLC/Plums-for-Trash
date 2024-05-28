@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -34,6 +35,16 @@ public class GameActivity extends Activity {
      * The link between view layer and object model is the instance of the Board class. It is static because it will be needed in other activities.
      */
     private static Board board = new Board();
+
+    /**
+     * Seek bar reference.
+     */
+    private SeekBar bar1 = null;
+
+    /**
+     * Seek bar reference.
+     */
+    private SeekBar bar2 = null;
 
     /**
      * Get board reference.
@@ -148,6 +159,9 @@ public class GameActivity extends Activity {
             CARDS_IMAGES.put("quest_v5_en_15", R.drawable.quest_v5_en_15);
             CARDS_IMAGES.put("quest_v5_en_16", R.drawable.quest_v5_en_16);
         }
+
+        bar1 = findViewById(R.id.card1Scroller);
+        bar2 = findViewById(R.id.card2Scroller);
     }
 
 
