@@ -9,4 +9,19 @@ class OrganicCard extends Card {
     OrganicCard(String key) {
         super(key);
     }
+
+    /**
+     * Check if the card can fit in the container.
+     *
+     * @param container Container to check.
+     * @return True if the card can fit in the container, false otherwise.
+     */
+    public boolean fitContainer(Class container) {
+        if (container == OrganicContainer.class) {
+            return true;
+        }
+
+        return false;
+    }
+
 }

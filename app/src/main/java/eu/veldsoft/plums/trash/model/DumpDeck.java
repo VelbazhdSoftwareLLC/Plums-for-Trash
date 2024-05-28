@@ -67,7 +67,6 @@ class DumpDeck extends Deck {
                 new ExchangeCard("garbage_cards_v6_65"),
                 new ExchangeCard("garbage_cards_v6_66"),
                 new ExchangeCard("garbage_cards_v6_67")
-
         );
     }
 }
