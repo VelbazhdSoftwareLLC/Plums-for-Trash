@@ -38,7 +38,7 @@ abstract class Container {
         return cards.get(index);
     }
 
-    public Card get(Card card) throws RuntimeException {
+    public Card get(Card card) {
         if (!cards.contains(card)) {
             throw new RuntimeException("The card is not in the container.");
         }

@@ -7,9 +7,9 @@
     tools:context=".GameActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <SeekBar
             android:id="@+id/card1Scroller"
@@ -27,9 +27,9 @@
             android:src="@drawable/garbage_cards_v6_01" />
 
         <Button
-            android:text="@string/check_two_cards_caption"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></Button>
+            android:layout_height="wrap_content"
+            android:text="@string/check_two_cards_caption"></Button>
 
     </LinearLayout>
 

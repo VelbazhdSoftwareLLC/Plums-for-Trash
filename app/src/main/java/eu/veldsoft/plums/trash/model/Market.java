@@ -51,7 +51,7 @@ class Market {
      * @return Card taken from the market.
      * @throws RuntimeException If the market is empty or index is out of bounds.
      */
-    public Card take(int index) throws RuntimeException {
+    public Card take(int index) {
         if (opened.isEmpty()) {
             throw new RuntimeException("The market is empty.");
         }

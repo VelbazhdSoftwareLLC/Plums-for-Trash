@@ -36,7 +36,7 @@ class Dump {
      * @return Cards from the dump to look at.
      * @throws RuntimeException If the index is out of bounds.
      */
-    public Card[] lookup(int... indices) throws RuntimeException {
+    public Card[] lookup(int... indices) {
         Card[] cards = new Card[indices.length];
 
         for (int i = 0; i < indices.length; i++) {
@@ -57,7 +57,7 @@ class Dump {
      * @return Card taken from the dump.
      * @throws RuntimeException If the dump is empty or index is out of bounds.
      */
-    public Card take(int index) throws RuntimeException {
+    public Card take(int index) {
         if (unused.isEmpty()) {
             throw new RuntimeException("The dump is empty.");
         }
@@ -76,7 +76,7 @@ class Dump {
      * @return Card taken from the dump.
      * @throws RuntimeException If the dump is empty or the card is not in the dump.
      */
-    public Card take(Card card) throws RuntimeException {
+    public Card take(Card card) {
         if (unused.isEmpty()) {
             throw new RuntimeException("The dump is empty.");
         }

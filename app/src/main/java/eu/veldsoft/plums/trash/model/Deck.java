@@ -28,8 +28,11 @@ abstract class Deck {
 
     /**
      * Pull the top card of the deck.
+     *
+     * @return The card pulled.
+     * @throws RuntimeException If the deck is empty.
      */
-    public Card pull() throws RuntimeException {
+    public Card pull() {
         if (cards == null || cards.isEmpty()) {
             throw new RuntimeException("The deck is empty!");
         }

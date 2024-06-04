@@ -22,15 +22,13 @@ import eu.veldsoft.plums.trash.model.Board;
  */
 public class GameActivity extends Activity {
     /**
-     * The identifier for launching activity.
-     */
-    private static final int LAUNCH_PLAYERS_LIST_ACTIVITY = 1;
-
-    /**
      * Map of the card key and card image.
      */
     static final Map<String, Integer> CARDS_IMAGES = new HashMap<String, Integer>();
-
+    /**
+     * The identifier for launching activity.
+     */
+    private static final int LAUNCH_PLAYERS_LIST_ACTIVITY = 1;
     /**
      * The link between view layer and object model is the instance of the Board class. It is static because it will be needed in other activities.
      */
