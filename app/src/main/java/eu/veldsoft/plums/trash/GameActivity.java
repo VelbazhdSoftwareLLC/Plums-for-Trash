@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -25,10 +26,12 @@ public class GameActivity extends Activity {
      * Map of the card key and card image.
      */
     static final Map<String, Integer> CARDS_IMAGES = new HashMap<String, Integer>();
+
     /**
      * The identifier for launching activity.
      */
     private static final int LAUNCH_PLAYERS_LIST_ACTIVITY = 1;
+
     /**
      * The link between view layer and object model is the instance of the Board class. It is static because it will be needed in other activities.
      */
@@ -60,6 +63,14 @@ public class GameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+
+        findViewById(R.id.checkCardsButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+
 
         /*
          * Map card keys to card image resource identifiers.
@@ -237,7 +248,10 @@ public class GameActivity extends Activity {
              * Convert the list of names to array of names.
              */
             if (board.newGame(names.toArray(new String[0])) == false) {
+                findViewById(R.id.tableLayout).setVisibility(View.INVISIBLE);
                 Toast.makeText(GameActivity.this, R.string.game_not_started_text, Toast.LENGTH_LONG).show();
+            } else {
+                findViewById(R.id.tableLayout).setVisibility(View.VISIBLE);
             }
         }
     }
