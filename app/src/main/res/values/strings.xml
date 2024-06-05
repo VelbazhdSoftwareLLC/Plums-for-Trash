@@ -46,4 +46,5 @@ Sofia, Bulgaria
     <string name="game_not_started_text">Game did not start!</string>
     <string name="players_done_text">Done</string>
     <string name="check_two_cards_caption">Check Two Cards</string>
+    <string name="done_caption">Done</string>
 </resources>
