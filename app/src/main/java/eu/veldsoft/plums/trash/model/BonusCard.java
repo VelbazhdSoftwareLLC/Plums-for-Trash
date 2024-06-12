@@ -1,5 +1,8 @@
 package eu.veldsoft.plums.trash.model;
 
+/**
+ * Bonus card class.
+ */
 class BonusCard extends Card {
     /**
      * Constructor with card key.

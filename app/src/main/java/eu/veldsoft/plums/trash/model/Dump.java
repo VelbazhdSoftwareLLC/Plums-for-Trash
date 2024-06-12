@@ -90,4 +90,12 @@ class Dump {
         return card;
     }
 
+    /**
+     * Get number of cards in the dump.
+     *
+     * @return Number of cards in the dump.
+     */
+    public int size() {
+        return unused.size();
+    }
 }

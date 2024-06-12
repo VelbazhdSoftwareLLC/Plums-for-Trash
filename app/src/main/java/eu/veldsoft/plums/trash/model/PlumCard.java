@@ -2,6 +2,9 @@ package eu.veldsoft.plums.trash.model;
 
 import java.util.Arrays;
 
+/**
+ * Plum card class.
+ */
 class PlumCard extends Card {
     /**
      * Value of the plums on the card.

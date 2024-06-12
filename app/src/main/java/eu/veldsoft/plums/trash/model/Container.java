@@ -38,6 +38,12 @@ abstract class Container {
         return cards.get(index);
     }
 
+    /**
+     * Get card from the container.
+     *
+     * @param card Card to get.
+     * @return Card from the container.
+     */
     public Card get(Card card) {
         if (!cards.contains(card)) {
             throw new RuntimeException("The card is not in the container.");

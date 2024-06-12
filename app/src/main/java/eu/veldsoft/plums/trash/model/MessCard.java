@@ -1,5 +1,8 @@
 package eu.veldsoft.plums.trash.model;
 
+/**
+ * Mess card class.
+ */
 class MessCard extends Card {
     /**
      * Constructor with card key.

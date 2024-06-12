@@ -6,6 +6,9 @@ import java.util.List;
  * Deck with cards for the dump.
  */
 class DumpDeck extends Deck {
+    /**
+     * Constructor without parameters.
+     */
     DumpDeck() {
         super();
 

@@ -1,5 +1,8 @@
 package eu.veldsoft.plums.trash.model;
 
+/**
+ * Exchange card class.
+ */
 class ExchangeCard extends Card {
     /**
      * Constructor with card key.

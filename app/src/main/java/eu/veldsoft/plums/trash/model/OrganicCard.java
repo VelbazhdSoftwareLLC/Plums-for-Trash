@@ -1,5 +1,8 @@
 package eu.veldsoft.plums.trash.model;
 
+/**
+ * Organic card class.
+ */
 class OrganicCard extends Card {
     /**
      * Constructor with card key.

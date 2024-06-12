@@ -74,4 +74,12 @@ final public class Board {
         return true;
     }
 
+    /**
+     * Get dump size.
+     *
+     * @return Dump size.
+     */
+    public int dumpSize() {
+        return dump.size();
+    }
 }

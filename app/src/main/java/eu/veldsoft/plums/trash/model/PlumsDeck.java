@@ -6,6 +6,9 @@ import java.util.List;
  * Deck with cards holding plums.
  */
 class PlumsDeck extends Deck {
+    /**
+     * Constructor without parameters.
+     */
     PlumsDeck() {
         super();
 

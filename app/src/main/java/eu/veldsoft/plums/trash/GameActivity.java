@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -31,6 +32,11 @@ public class GameActivity extends Activity {
      * The identifier for launching activity.
      */
     private static final int LAUNCH_PLAYERS_LIST_ACTIVITY = 1;
+
+    /**
+     * The identifier for launching activity.
+     */
+    private static final int LAUNCH_SELECT_CARD_ACTIVITY = 2;
 
     /**
      * The link between view layer and object model is the instance of the Board class. It is static because it will be needed in other activities.
@@ -171,6 +177,23 @@ public class GameActivity extends Activity {
 
         bar1 = findViewById(R.id.card1Scroller);
         bar2 = findViewById(R.id.card2Scroller);
+
+        ((Button) findViewById(R.id.checkCardsButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (board.dumpSize() <= 0) {
+                    return;
+                }
+
+                if (board.dumpSize() == 1) {
+                    //TODO Take the card.
+                } else if (bar1.getProgress() != bar2.getProgress()) {
+                    startActivityForResult((new Intent(GameActivity.this, SelectCardActivity.class)).putExtra("first", bar1.getProgress()).putExtra("second", bar2.getProgress()), LAUNCH_SELECT_CARD_ACTIVITY);
+                } else {
+                    return;
+                }
+            }
+        });
     }
 
 
@@ -251,8 +274,32 @@ public class GameActivity extends Activity {
                 findViewById(R.id.tableLayout).setVisibility(View.INVISIBLE);
                 Toast.makeText(GameActivity.this, R.string.game_not_started_text, Toast.LENGTH_LONG).show();
             } else {
+                redraw();
                 findViewById(R.id.tableLayout).setVisibility(View.VISIBLE);
             }
+        }
+
+        if (requestCode == LAUNCH_SELECT_CARD_ACTIVITY) {
+            //TODO Handle the card selection.
+        }
+    }
+
+    /**
+     * After change in the object model the user interface should be updated.
+     */
+    private void redraw() {
+        int dumpSize = board.dumpSize();
+
+        if (dumpSize > 0) {
+            bar1.setMin(0);
+            bar2.setMax(dumpSize - 1);
+            bar1.setMin(0);
+            bar2.setMax(dumpSize - 1);
+        } else {
+            bar1.setMin(0);
+            bar2.setMax(0);
+            bar1.setMin(0);
+            bar2.setMax(0);
         }
     }
 }
