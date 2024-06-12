@@ -1,5 +1,8 @@
 package eu.veldsoft.plums.trash.model;
 
+/**
+ * Plastic card class.
+ */
 class PlasticCard extends Card {
     /**
      * Constructor with card key.

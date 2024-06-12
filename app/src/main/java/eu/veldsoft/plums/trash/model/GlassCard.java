@@ -1,5 +1,8 @@
 package eu.veldsoft.plums.trash.model;
 
+/**
+ * Glass card class.
+ */
 class GlassCard extends Card {
     /**
      * Constructor with card key.
