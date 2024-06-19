@@ -194,6 +194,8 @@ public class GameActivity extends Activity {
                 }
             }
         });
+
+        redraw();
     }
 
 
@@ -280,7 +282,14 @@ public class GameActivity extends Activity {
         }
 
         if (requestCode == LAUNCH_SELECT_CARD_ACTIVITY) {
-            //TODO Handle the card selection.
+            /*
+             * Try to take a card.
+             */
+            if (!board.takeFromDump(data.getIntExtra("index", -1))) {
+                Toast.makeText(GameActivity.this, R.string.no_card_taken_text, Toast.LENGTH_LONG).show();
+            } else {
+                redraw();
+            }
         }
     }
 

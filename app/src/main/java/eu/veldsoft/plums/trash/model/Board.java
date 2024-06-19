@@ -82,4 +82,16 @@ final public class Board {
     public int dumpSize() {
         return dump.size();
     }
+
+    /**
+     * Currant player take card from the dump.
+     *
+     * @param index Index of the card in the dump to be taken.
+     * @return True if the card was taken, false otherwise.
+     */
+    public boolean takeFromDump(int index) {
+        //TODO Handle card take.
+
+        return false;
+    }
 }
