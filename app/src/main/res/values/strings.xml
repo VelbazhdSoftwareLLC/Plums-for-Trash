@@ -47,4 +47,5 @@ Sofia, Bulgaria
     <string name="players_done_text">Done</string>
     <string name="check_two_cards_caption">Check Two Cards</string>
     <string name="done_caption">Done</string>
+    <string name="no_card_taken_text">No card taken!</string>
 </resources>
