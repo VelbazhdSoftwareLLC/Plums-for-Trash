@@ -186,7 +186,7 @@ public class GameActivity extends Activity {
                 }
 
                 if (board.dumpSize() == 1) {
-                    //TODO Take the card.
+                    startActivityForResult((new Intent(GameActivity.this, SelectCardActivity.class)).putExtra("first", 0).putExtra("second", -1), LAUNCH_SELECT_CARD_ACTIVITY);
                 } else if (bar1.getProgress() != bar2.getProgress()) {
                     startActivityForResult((new Intent(GameActivity.this, SelectCardActivity.class)).putExtra("first", bar1.getProgress()).putExtra("second", bar2.getProgress()), LAUNCH_SELECT_CARD_ACTIVITY);
                 } else {
