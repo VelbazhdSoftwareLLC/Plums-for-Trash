@@ -90,8 +90,16 @@ final public class Board {
      * @return True if the card was taken, false otherwise.
      */
     public boolean takeFromDump(int index) {
-        //TODO Handle card take.
+        if (playing == null) {
+            return false;
+        }
 
-        return false;
+        if (index < 0 || index >= dump.size()) {
+            return false;
+        }
+
+        playing.keep(dump.take(index));
+
+        return true;
     }
 }

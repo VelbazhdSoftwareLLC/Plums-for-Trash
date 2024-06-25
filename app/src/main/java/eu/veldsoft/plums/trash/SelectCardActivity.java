@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,7 +55,7 @@ public class SelectCardActivity extends Activity {
             public void onClick(View view) {
                 int index = ((RadioGroup) findViewById(R.id.cardOptions)).getCheckedRadioButtonId();
                 if (index == -1) {
-                    //TODO Show toast message.
+                    Toast.makeText(SelectCardActivity.this, R.string.please_select_a_card_text, Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -63,10 +64,10 @@ public class SelectCardActivity extends Activity {
                 } else if (index == 2 && index2 != -1) {
                     setResult(Activity.RESULT_OK, (new Intent()).putExtra("index", index2));
                 } else if (index == 1 && index1 == -1) {
-                    //TODO Show toast message.
+                    Toast.makeText(SelectCardActivity.this, R.string.first_card_is_not_proper_for_selection_text, Toast.LENGTH_LONG).show();
                     return;
                 } else if (index == 2 && index2 == -1) {
-                    //TODO Show toast message.
+                    Toast.makeText(SelectCardActivity.this, R.string.second_card_is_not_proper_for_selection_text, Toast.LENGTH_LONG).show();
                     return;
                 }
 

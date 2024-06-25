@@ -48,4 +48,7 @@ Sofia, Bulgaria
     <string name="check_two_cards_caption">Check Two Cards</string>
     <string name="done_caption">Done</string>
     <string name="no_card_taken_text">No card taken!</string>
+    <string name="please_select_a_card_text">Please select a card!</string>
+    <string name="first_card_is_not_proper_for_selection_text">First card is not proper for selection!</string>
+    <string name="second_card_is_not_proper_for_selection_text">Second card is not proper for selection!</string>
 </resources>
