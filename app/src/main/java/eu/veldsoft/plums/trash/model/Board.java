@@ -66,6 +66,9 @@ final public class Board {
         market = new Market();
         dump = new Dump();
 
+        market.reset();
+        dump.reset();
+
         /*
          * In the real life counting usually starts from one, not from zero.
          */
@@ -101,5 +104,23 @@ final public class Board {
         playing.keep(dump.take(index));
 
         return true;
+    }
+
+    /**
+     * Lookup cards from the dump.
+     *
+     * @param indices Indices of the cards to lookup.
+     * @return Cards keys from the dump to look at.
+     * @throws RuntimeException If the index is out of bounds.
+     */
+    public String[] lookupInDump(int... indices) {
+        Card cards[] = dump.lookup(indices);
+        String keys[] = new String[cards.length];
+
+        for (int i = 0; i < cards.length; i++) {
+            keys[i] = cards[i].key();
+        }
+
+        return keys;
     }
 }

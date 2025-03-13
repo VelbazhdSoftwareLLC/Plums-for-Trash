@@ -25,8 +25,9 @@
 
             <ImageView
                 android:id="@+id/firstCard"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:src="@drawable/garbage_cards_v6_01" />
 
         </LinearLayout>
@@ -43,8 +44,9 @@
 
             <ImageView
                 android:id="@+id/secondCard"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:src="@drawable/garbage_cards_v6_01" />
 
         </LinearLayout>
@@ -53,8 +55,9 @@
 
     <Button
         android:id="@+id/cardSelectedButton"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="@string/done_caption"></Button>
 
 </LinearLayout>

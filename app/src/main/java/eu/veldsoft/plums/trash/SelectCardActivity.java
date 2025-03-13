@@ -83,16 +83,16 @@ public class SelectCardActivity extends Activity {
     protected void onStart() {
         super.onStart();
 
+        index1 = getIntent().getIntExtra("index1", -1);
+        index2 = getIntent().getIntExtra("index2", -1);
         key1 = getIntent().getStringExtra("key1");
-        key2 = getIntent().getStringExtra("key1");
-        index1 = getIntent().getIntExtra("first", -1);
-        index2 = getIntent().getIntExtra("second", -1);
+        key2 = getIntent().getStringExtra("key2");
 
-        if (key1 != null) {
+        if (key1 == null) {
             key1 = "garbage_cards_v6_01";
         }
 
-        if (key2 != null) {
+        if (key2 == null) {
             key2 = "garbage_cards_v6_01";
         }
 
