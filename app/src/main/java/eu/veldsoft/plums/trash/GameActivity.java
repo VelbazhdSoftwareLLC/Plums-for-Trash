@@ -186,9 +186,11 @@ public class GameActivity extends Activity {
                 }
 
                 if (board.dumpSize() == 1) {
-                    startActivityForResult((new Intent(GameActivity.this, SelectCardActivity.class)).putExtra("first", 0).putExtra("second", -1), LAUNCH_SELECT_CARD_ACTIVITY);
+                    String keys[] = board.lookupInDump(0);
+                    startActivityForResult((new Intent(GameActivity.this, SelectCardActivity.class)).putExtra("index1", 0).putExtra("key1", keys[0]), LAUNCH_SELECT_CARD_ACTIVITY);
                 } else if (bar1.getProgress() != bar2.getProgress()) {
-                    startActivityForResult((new Intent(GameActivity.this, SelectCardActivity.class)).putExtra("first", bar1.getProgress()).putExtra("second", bar2.getProgress()), LAUNCH_SELECT_CARD_ACTIVITY);
+                    String keys[] = board.lookupInDump(bar1.getProgress(), bar2.getProgress());
+                    startActivityForResult((new Intent(GameActivity.this, SelectCardActivity.class)).putExtra("index1", bar1.getProgress()).putExtra("index2", bar2.getProgress()).putExtra("key1", keys[0]).putExtra("key2", keys[1]), LAUNCH_SELECT_CARD_ACTIVITY);
                 } else {
                     return;
                 }
@@ -301,13 +303,13 @@ public class GameActivity extends Activity {
 
         if (dumpSize > 0) {
             bar1.setMin(0);
-            bar2.setMax(dumpSize - 1);
-            bar1.setMin(0);
+            bar1.setMax(dumpSize - 1);
+            bar2.setMin(0);
             bar2.setMax(dumpSize - 1);
         } else {
             bar1.setMin(0);
-            bar2.setMax(0);
-            bar1.setMin(0);
+            bar1.setMax(0);
+            bar2.setMin(0);
             bar2.setMax(0);
         }
     }

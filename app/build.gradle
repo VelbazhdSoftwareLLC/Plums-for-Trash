@@ -4,12 +4,11 @@ plugins {
 
 android {
     namespace 'eu.veldsoft.plums.trash'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "eu.veldsoft.plums.trash"
         minSdk 33
-        targetSdk 33
         versionCode 1
         versionName "1.00"
 
