@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -50,6 +51,20 @@ public class SelectCardActivity extends Activity {
 
         CARDS_IMAGES = GameActivity.CARDS_IMAGES;
 
+        ((ImageView) findViewById(R.id.firstCard)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((RadioButton) findViewById(R.id.firstOption)).setChecked(true);
+            }
+        });
+
+        ((ImageView) findViewById(R.id.secondCard)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((RadioButton) findViewById(R.id.secondOption)).setChecked(true);
+            }
+        });
+
         findViewById(R.id.cardSelectedButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,19 +74,17 @@ public class SelectCardActivity extends Activity {
                     return;
                 }
 
-                if (index == 1 && index1 != -1) {
+                if (index == R.id.firstOption && index1 != -1) {
                     setResult(Activity.RESULT_OK, (new Intent()).putExtra("index", index1));
-                } else if (index == 2 && index2 != -1) {
+                    SelectCardActivity.this.finish();
+                } else if (index == R.id.secondOption && index2 != -1) {
                     setResult(Activity.RESULT_OK, (new Intent()).putExtra("index", index2));
+                    SelectCardActivity.this.finish();
                 } else if (index == 1 && index1 == -1) {
                     Toast.makeText(SelectCardActivity.this, R.string.first_card_is_not_proper_for_selection_text, Toast.LENGTH_LONG).show();
-                    return;
                 } else if (index == 2 && index2 == -1) {
                     Toast.makeText(SelectCardActivity.this, R.string.second_card_is_not_proper_for_selection_text, Toast.LENGTH_LONG).show();
-                    return;
                 }
-
-                SelectCardActivity.this.finish();
             }
         });
     }
