@@ -220,6 +220,11 @@ public class GameActivity extends Activity {
             startActivityForResult(new Intent(GameActivity.this, NumberOfPlayersActivity.class), LAUNCH_PLAYERS_LIST_ACTIVITY);
         }
 
+        if (item.getItemId() == R.id.view_cards) {
+            //TODO Load keys as parameter.
+            startActivity(new Intent(GameActivity.this, PlayerCardsActivity.class));
+        }
+
         if (item.getItemId() == R.id.help) {
             startActivity(new Intent(GameActivity.this, HelpActivity.class));
         }
@@ -290,6 +295,7 @@ public class GameActivity extends Activity {
             if (!board.takeFromDump(data.getIntExtra("index", -1))) {
                 Toast.makeText(GameActivity.this, R.string.no_card_taken_text, Toast.LENGTH_LONG).show();
             } else {
+                //TODO Do action.
                 redraw();
             }
         }
@@ -312,5 +318,14 @@ public class GameActivity extends Activity {
             bar2.setMin(0);
             bar2.setMax(0);
         }
+
+
+        String title = "";
+        title += getString(R.string.app_name);
+        String info = board.currentPlayerInfo();
+        if (!info.equals("")) {
+            title += " - " + info;
+        }
+        setTitle(title);
     }
 }

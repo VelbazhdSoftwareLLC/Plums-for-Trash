@@ -84,4 +84,20 @@ class Player {
             c.put(card);
         }
     }
+
+    //TODO Homework - write JavaDoc comment.
+
+    /**
+     * @return
+     */
+    public List<Card> allCards() {
+        List<Card> result = new ArrayList<>();
+
+        result.addAll(bought);
+        for (Container c : containers) {
+            result.addAll(c.get());
+        }
+
+        return result;
+    }
 }

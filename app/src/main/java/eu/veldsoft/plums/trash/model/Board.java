@@ -123,4 +123,38 @@ final public class Board {
 
         return keys;
     }
+
+    //TODO Homework - write JavaDoc comment.
+
+    /**
+     * @return
+     */
+    public String[] lookupCurrentPlayerCards() {
+        String[] keys = {};
+
+        if (playing == null) {
+            return keys;
+        }
+
+        List<Card> all = playing.allCards();
+        keys = new String[all.size()];
+        for (int i = 0; i < keys.length; i++) {
+            keys[i] = all[i].key();
+        }
+
+        return keys;
+    }
+
+    /**
+     * Retrieves the name of the current player.
+     *
+     * @return The name of the current player, or an empty string if no player is currently playing.
+     */
+    public String currentPlayerInfo() {
+        if (playing == null) {
+            return "";
+        }
+
+        return playing.name() + " [" + (round) + ']';
+    }
 }
