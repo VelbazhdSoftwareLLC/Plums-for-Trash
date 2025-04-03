@@ -53,4 +53,13 @@ abstract class Container {
 
         return card;
     }
+
+    //TODO Homework - write JavaDoc comment.
+
+    /**
+     * @return
+     */
+    public List<Card> get() {
+        return cards;
+    }
 }

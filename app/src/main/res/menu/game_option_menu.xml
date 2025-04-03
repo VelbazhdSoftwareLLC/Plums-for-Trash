@@ -6,6 +6,10 @@
         android:title="@string/new_game_menu" />
 
     <item
+        android:id="@+id/view_cards"
+        android:title="@string/view_cards_menu" />
+
+    <item
         android:id="@+id/help"
         android:title="@string/help_menu" />
     <item
