@@ -40,6 +40,7 @@ Sofia, Bulgaria
     <string name="exit_game_label">Exit Game</string>
     <string name="new_game_menu">New Game</string>
     <string name="view_cards_menu">View Cards</string>
+    <string name="view_makret_menu">View Market</string>
     <string name="help_menu">Help</string>
     <string name="about_menu">About</string>
     <string name="exit_menu">Exit</string>
@@ -48,6 +49,7 @@ Sofia, Bulgaria
     <string name="players_done_text">Done</string>
     <string name="check_two_cards_caption">Check Two Cards</string>
     <string name="done_caption">Done</string>
+    <string name="buy_caption">Buy</string>
     <string name="no_card_taken_text">No card taken!</string>
     <string name="please_select_a_card_text">Please select a card!</string>
     <string name="first_card_is_not_proper_for_selection_text">First card is not proper for selection!</string>

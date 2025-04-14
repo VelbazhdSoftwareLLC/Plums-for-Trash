@@ -85,10 +85,11 @@ class Player {
         }
     }
 
-    //TODO Homework - write JavaDoc comment.
-
     /**
-     * @return
+     * Retrieves all cards currently held, including bought cards and those from all containers.
+     *
+     * @return a list of {@code Card} objects representing all cards held. The list includes cards from
+     * the {@code bought} collection and all cards from each {@code Container} in {@code containers}.
      */
     public List<Card> allCards() {
         List<Card> result = new ArrayList<>();

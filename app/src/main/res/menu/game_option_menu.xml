@@ -8,6 +8,9 @@
     <item
         android:id="@+id/view_cards"
         android:title="@string/view_cards_menu" />
+    <item
+        android:id="@+id/view_market"
+        android:title="@string/view_makret_menu" />
 
     <item
         android:id="@+id/help"

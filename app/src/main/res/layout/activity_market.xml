@@ -4,19 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".PlayerCardsActivity">
+    tools:context=".MarketActivity">
 
 
     <ImageView
-        android:id="@+id/takenCard"
+        android:id="@+id/marketCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@drawable/garbage_cards_v6_01" />
 
     <SeekBar
-        android:id="@+id/cardsScroller"
+        android:id="@+id/marketScroller"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/buyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/buy_caption" />
 
 </LinearLayout>

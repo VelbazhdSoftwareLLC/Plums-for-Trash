@@ -124,10 +124,12 @@ final public class Board {
         return keys;
     }
 
-    //TODO Homework - write JavaDoc comment.
 
     /**
-     * @return
+     * Retrieves the keys of all cards currently held by the current player.
+     *
+     * @return an array of strings representing the keys of all cards held by the current player.
+     * Returns an empty array if the player is not playing or has no cards.
      */
     public String[] lookupCurrentPlayerCards() {
         String[] keys = {};
@@ -139,7 +141,24 @@ final public class Board {
         List<Card> all = playing.allCards();
         keys = new String[all.size()];
         for (int i = 0; i < keys.length; i++) {
-            keys[i] = all[i].key();
+            keys[i] = all.get(i).key();
+        }
+
+        return keys;
+    }
+
+    //TODO Write JavDoc comment.
+
+    /**
+     * @return
+     */
+    public String[] lookupOpenMarketCards() {
+        String[] keys = {};
+
+        List<Card> opened = market.opened();
+        keys = new String[opened.size()];
+        for (int i = 0; i < keys.length; i++) {
+            keys[i] = opened.get(i).key();
         }
 
         return keys;
