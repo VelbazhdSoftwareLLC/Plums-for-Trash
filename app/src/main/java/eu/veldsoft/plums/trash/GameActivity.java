@@ -26,17 +26,22 @@ public class GameActivity extends Activity {
     /**
      * Map of the card key and card image.
      */
-    static final Map<String, Integer> CARDS_IMAGES = new HashMap<String, Integer>();
+    static final Map<String, Integer> CARDS_IMAGES = new HashMap<>();
 
     /**
-     * The identifier for launching activity.
+     * The identifier for players list activity.
      */
     private static final int LAUNCH_PLAYERS_LIST_ACTIVITY = 1;
 
     /**
-     * The identifier for launching activity.
+     * The identifier for select card activity.
      */
     private static final int LAUNCH_SELECT_CARD_ACTIVITY = 2;
+
+    /**
+     * The identifier for view market activity.
+     */
+    private static final int LAUNCH_VIEW_MARKET_ACTIVITY = 3;
 
     /**
      * The link between view layer and object model is the instance of the Board class. It is static because it will be needed in other activities.
@@ -197,6 +202,7 @@ public class GameActivity extends Activity {
             }
         });
 
+
         redraw();
     }
 
@@ -221,8 +227,13 @@ public class GameActivity extends Activity {
         }
 
         if (item.getItemId() == R.id.view_cards) {
-            //TODO Load keys as parameter.
-            startActivity(new Intent(GameActivity.this, PlayerCardsActivity.class));
+            String keys[] = board.lookupCurrentPlayerCards();
+            startActivity(new Intent(GameActivity.this, PlayerCardsActivity.class).putExtra("keys", keys));
+        }
+
+        if (item.getItemId() == R.id.view_market) {
+            String keys[] = board.lookupOpenMarketCards();
+            startActivityForResult(new Intent(GameActivity.this, MarketActivity.class).putExtra("keys", keys), LAUNCH_VIEW_MARKET_ACTIVITY);
         }
 
         if (item.getItemId() == R.id.help) {
@@ -298,6 +309,10 @@ public class GameActivity extends Activity {
                 //TODO Do action.
                 redraw();
             }
+        }
+
+        if (requestCode == LAUNCH_VIEW_MARKET_ACTIVITY) {
+            //TODO Buy a card.
         }
     }
 

@@ -20,12 +20,21 @@ class Market {
     /**
      * List of cards held into the closed set.
      */
-    private List<Card> closed = new ArrayList<Card>();
+    private List<Card> closed = new ArrayList<>();
 
     /**
      * List of cards held into the opened set.
      */
-    private List<Card> opened = new ArrayList<Card>();
+    private List<Card> opened = new ArrayList<>();
+
+    //TODO Write JavaDoc comment.
+
+    /**
+     * @return
+     */
+    List<Card> opened() {
+        return opened;
+    }
 
     /**
      * Reset the initial state of the market.

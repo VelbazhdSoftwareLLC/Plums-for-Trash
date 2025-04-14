@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  *
  */
-public class PlayerCardsActivity extends Activity {
+public class MarketActivity extends Activity {
     /**
      * Map of the card key and card image reference.
      */
@@ -41,12 +41,13 @@ public class PlayerCardsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_cards);
+        setContentView(R.layout.activity_market);
+
 
         CARDS_IMAGES = GameActivity.CARDS_IMAGES;
 
-        image = ((ImageView) findViewById(R.id.takenCard));
-        bar = findViewById(R.id.cardsScroller);
+        image = ((ImageView) findViewById(R.id.marketCard));
+        bar = findViewById(R.id.marketScroller);
         bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -65,6 +66,8 @@ public class PlayerCardsActivity extends Activity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
+
+        //TODO Handle buy button.
     }
 
     /**

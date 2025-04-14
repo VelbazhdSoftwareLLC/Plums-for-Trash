@@ -54,10 +54,11 @@ abstract class Container {
         return card;
     }
 
-    //TODO Homework - write JavaDoc comment.
 
     /**
-     * @return
+     * Retrieves the list of all cards.
+     *
+     * @return a list of {@code Card} objects currently stored. Returns an empty list if no cards are present.
      */
     public List<Card> get() {
         return cards;
