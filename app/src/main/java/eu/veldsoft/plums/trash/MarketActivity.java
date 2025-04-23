@@ -3,16 +3,21 @@ package eu.veldsoft.plums.trash;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO Write JavaDoc comment for the class.
-
 /**
- *
+ * Represents the activity responsible for displaying and interacting with the market view.
+ * This activity shows a visual representation of available cards using an {@link ImageView}
+ * and allows navigation through the cards using a {@link SeekBar}. The card images are loaded
+ * based on keys passed via the intent extras.
+ * Card image references are retrieved from a shared static map of keys to drawable resource IDs.
  */
 public class MarketActivity extends Activity {
     /**
@@ -24,6 +29,12 @@ public class MarketActivity extends Activity {
      * Array with cards' keys.
      */
     private String[] keys = {};
+
+    //TODO Homework - comment.
+    /**
+     *
+     */
+    private boolean affordable[] = {};
 
     /**
      * Card image view reference.
@@ -67,7 +78,16 @@ public class MarketActivity extends Activity {
             }
         });
 
-        //TODO Handle buy button.
+        ((Button) findViewById(R.id.buyButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (affordable != null && affordable.length > bar.getProgress() && affordable[bar.getProgress()] == true) {
+                    //TODO Buy the card and close the activity with success.
+                } else {
+                    Toast.makeText(MarketActivity.this, R.string.can_not_buy_text, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     /**
@@ -78,6 +98,7 @@ public class MarketActivity extends Activity {
         super.onStart();
 
         keys = getIntent().getStringArrayExtra("keys");
+        affordable = getIntent().getBooleanArrayExtra("affordable");
 
         if (keys != null && keys.length > 0) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

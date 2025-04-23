@@ -27,10 +27,11 @@ class Market {
      */
     private List<Card> opened = new ArrayList<>();
 
-    //TODO Write JavaDoc comment.
 
     /**
-     * @return
+     * Returns the list of cards currently opened in the market.
+     *
+     * @return A list of {@code Card} objects representing the opened market cards.
      */
     List<Card> opened() {
         return opened;
