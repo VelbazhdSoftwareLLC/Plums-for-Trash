@@ -54,4 +54,5 @@ Sofia, Bulgaria
     <string name="please_select_a_card_text">Please select a card!</string>
     <string name="first_card_is_not_proper_for_selection_text">First card is not proper for selection!</string>
     <string name="second_card_is_not_proper_for_selection_text">Second card is not proper for selection!</string>
+    <string name="can_not_buy_text">You can not buy this card!</string>
 </resources>

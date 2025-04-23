@@ -9,10 +9,12 @@ import android.widget.SeekBar;
 import java.util.HashMap;
 import java.util.Map;
 
-//TODO Write JavaDoc comment for the class.
-
 /**
- *
+ * Displays the cards currently held by the player in a scrollable interface.
+ * This activity uses an {@link ImageView} to show individual card images and a {@link SeekBar}
+ * to navigate through the player's cards. The images are determined using keys passed through
+ * the activity's intent and mapped via a static card image reference map.
+ * The UI defaults to a placeholder image when no cards are present.
  */
 public class PlayerCardsActivity extends Activity {
     /**

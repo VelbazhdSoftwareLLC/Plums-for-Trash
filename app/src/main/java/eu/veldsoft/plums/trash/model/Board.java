@@ -3,11 +3,36 @@ package eu.veldsoft.plums.trash.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Board class is the interface class of the package and holds all objects which take part in the game.
  */
 final public class Board {
+    //TODO Homework - comment.
+    /**
+     *
+     */
+    private static enum State {
+        //TODO Pass as constructor parameteres from wich state in which state you can go.
+        NONE,
+        NEW_GAME,
+        END_TURN,
+        END_GAME,
+    }
+
+    //TODO Homework - comment.
+    /**
+     *
+     */
+    private static final Random PRNG = new Random();
+
+    //TODO Homework - comment.
+    /**
+     *
+     */
+    private State state = State.NONE;
+
     /**
      * Market with plums cards.
      */
@@ -74,6 +99,9 @@ final public class Board {
          */
         round = 1;
 
+        /* The game has started. */
+        state = State.NEW_GAME;
+
         return true;
     }
 
@@ -124,7 +152,6 @@ final public class Board {
         return keys;
     }
 
-
     /**
      * Retrieves the keys of all cards currently held by the current player.
      *
@@ -147,10 +174,10 @@ final public class Board {
         return keys;
     }
 
-    //TODO Write JavDoc comment.
-
     /**
-     * @return
+     * Retrieves the keys of all cards currently opened in the market.
+     *
+     * @return An array of strings representing the keys of opened market cards.
      */
     public String[] lookupOpenMarketCards() {
         String[] keys = {};
@@ -163,6 +190,29 @@ final public class Board {
 
         return keys;
     }
+
+    //TODO Homework - comment.
+
+    /**
+     * @return
+     */
+    public boolean[] cardsCanBuy() {
+        boolean[] affordable = new boolean[market.opened().size()];
+
+        if (playing == null) {
+            return affordable;
+        }
+
+        for (int i = 0; i < market.opened().size(); i++) {
+            Card card = market.opened().get(i);
+
+            //TODO Check for cards which can buy.
+            affordable[i] = PRNG.nextBoolean();
+        }
+
+        return affordable;
+    }
+
 
     /**
      * Retrieves the name of the current player.

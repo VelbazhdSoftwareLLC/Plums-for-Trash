@@ -233,7 +233,11 @@ public class GameActivity extends Activity {
 
         if (item.getItemId() == R.id.view_market) {
             String keys[] = board.lookupOpenMarketCards();
-            startActivityForResult(new Intent(GameActivity.this, MarketActivity.class).putExtra("keys", keys), LAUNCH_VIEW_MARKET_ACTIVITY);
+            boolean affordable[] = board.cardsCanBuy();
+            startActivityForResult(new Intent(GameActivity.this, MarketActivity.class).
+                            putExtra("keys", keys).
+                            putExtra("affordable", affordable)
+                    , LAUNCH_VIEW_MARKET_ACTIVITY);
         }
 
         if (item.getItemId() == R.id.help) {
