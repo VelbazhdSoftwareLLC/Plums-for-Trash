@@ -30,9 +30,8 @@ public class MarketActivity extends Activity {
      */
     private String[] keys = {};
 
-    //TODO Homework - comment.
     /**
-     *
+     * Array showed if cards are affordable.
      */
     private boolean affordable[] = {};
 

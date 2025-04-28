@@ -9,9 +9,8 @@ import java.util.Random;
  * Board class is the interface class of the package and holds all objects which take part in the game.
  */
 final public class Board {
-    //TODO Homework - comment.
     /**
-     *
+     * States of the Game.
      */
     private static enum State {
         //TODO Pass as constructor parameteres from wich state in which state you can go.
@@ -21,15 +20,13 @@ final public class Board {
         END_GAME,
     }
 
-    //TODO Homework - comment.
     /**
-     *
+     * Pseudo-random number generator.
      */
     private static final Random PRNG = new Random();
 
-    //TODO Homework - comment.
     /**
-     *
+     * State, starting from none.
      */
     private State state = State.NONE;
 
@@ -191,10 +188,11 @@ final public class Board {
         return keys;
     }
 
-    //TODO Homework - comment.
 
     /**
-     * @return
+     * Retrieves the affordable slums for the current player.
+     *
+     * @return if possibly to buy.
      */
     public boolean[] cardsCanBuy() {
         boolean[] affordable = new boolean[market.opened().size()];
@@ -206,8 +204,7 @@ final public class Board {
         for (int i = 0; i < market.opened().size(); i++) {
             Card card = market.opened().get(i);
 
-            //TODO Check for cards which can buy.
-            affordable[i] = PRNG.nextBoolean();
+            affordable[i] = playing.affordable(card);
         }
 
         return affordable;
