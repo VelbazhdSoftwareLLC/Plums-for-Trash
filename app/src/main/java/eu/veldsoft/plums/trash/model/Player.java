@@ -1,7 +1,9 @@
 package eu.veldsoft.plums.trash.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Player class describes the players' characteristics.
@@ -100,5 +102,32 @@ class Player {
         }
 
         return result;
+    }
+
+    //TODO Home work - write JavaDoc comment.
+
+    /**
+     * @param card
+     * @return
+     */
+    public boolean affordable(Card card) {
+        if (card instanceof PlumCard == false) {
+            return false;
+        }
+
+        Map<Class, Integer> counters = new HashMap<>();
+        PlumCard check = (PlumCard) card;
+        for (Class container : check.containers()) {
+            counters.put(container, counters.getOrDefault(container, 0) + 1);
+        }
+
+        for (Class container : counters.keySet()) {
+            for (Container trash : containers)
+                if (trash.getClass() == container && counters.get(container) > trash.get().size()) {
+                    return false;
+                }
+        }
+
+        return true;
     }
 }

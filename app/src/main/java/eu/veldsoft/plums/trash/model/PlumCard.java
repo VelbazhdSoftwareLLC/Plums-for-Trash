@@ -38,6 +38,14 @@ class PlumCard extends Card {
         return value;
     }
 
+    //TODO Homework - write JavaDoc comment.
+
+    /**
+     * @return
+     */
+    public Class[] containers() {
+        return trash;
+    }
 
     /**
      * Check if the card can fit in the container.
@@ -52,5 +60,4 @@ class PlumCard extends Card {
 
         return false;
     }
-
 }
