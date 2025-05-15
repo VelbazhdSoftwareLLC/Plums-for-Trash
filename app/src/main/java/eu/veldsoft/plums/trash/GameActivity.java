@@ -44,6 +44,11 @@ public class GameActivity extends Activity {
     private static final int LAUNCH_VIEW_MARKET_ACTIVITY = 3;
 
     /**
+     * The identifier for sell cards activity.
+     */
+    private static final int LAUNCH_SELL_CARDS_ACTIVITY = 4;
+
+    /**
      * The link between view layer and object model is the instance of the Board class. It is static because it will be needed in other activities.
      */
     private static Board board = new Board();
@@ -316,7 +321,16 @@ public class GameActivity extends Activity {
         }
 
         if (requestCode == LAUNCH_VIEW_MARKET_ACTIVITY) {
-            //TODO Buy a card.
+            int index = data.getIntExtra("index", -1);
+            String key = data.getStringExtra(("key", "garbage_cards_v6_01");
+            String keys[] = board.lookupCurrentPlayerCards();
+            startActivityForResult(new Intent(GameActivity.this,
+                            SellCardsActivity.class).
+                            putExtra("key", key).
+                            putExtra("index", index).
+                            putExtra("keys", keys)
+                    , LAUNCH_SELL_CARDS_ACTIVITY);
+
         }
     }
 
