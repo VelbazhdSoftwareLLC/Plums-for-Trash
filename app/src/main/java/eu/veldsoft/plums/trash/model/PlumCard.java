@@ -38,10 +38,10 @@ class PlumCard extends Card {
         return value;
     }
 
-    //TODO Homework - write JavaDoc comment.
-
     /**
-     * @return
+     * Identified containers which contains trash
+     *
+     * @return Array of the used trash containers.
      */
     public Class[] containers() {
         return trash;

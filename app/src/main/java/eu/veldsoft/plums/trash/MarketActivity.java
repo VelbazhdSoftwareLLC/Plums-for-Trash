@@ -1,6 +1,7 @@
 package eu.veldsoft.plums.trash;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -81,7 +82,10 @@ public class MarketActivity extends Activity {
             @Override
             public void onClick(View view) {
                 if (affordable != null && affordable.length > bar.getProgress() && affordable[bar.getProgress()] == true) {
-                    //TODO Buy the card and close the activity with success.
+                    setResult(Activity.RESULT_OK, (new Intent()).
+                            putExtra("index", bar.getProgress()).
+                            putExtra("key", keys[bar.getProgress()]));
+                    MarketActivity.this.finish();
                 } else {
                     Toast.makeText(MarketActivity.this, R.string.can_not_buy_text, Toast.LENGTH_LONG).show();
                 }

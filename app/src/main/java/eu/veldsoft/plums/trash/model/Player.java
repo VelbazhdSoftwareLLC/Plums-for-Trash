@@ -90,7 +90,7 @@ class Player {
     /**
      * Retrieves all cards currently held, including bought cards and those from all containers.
      *
-     * @return a list of {@code Card} objects representing all cards held. The list includes cards from
+     * @return A list of {@code Card} objects representing all cards held. The list includes cards from
      * the {@code bought} collection and all cards from each {@code Container} in {@code containers}.
      */
     public List<Card> allCards() {
@@ -104,11 +104,11 @@ class Player {
         return result;
     }
 
-    //TODO Home work - write JavaDoc comment.
-
     /**
-     * @param card
-     * @return
+     * Checking if the player has enough rubbish to exchange for the card plum.
+     *
+     * @param card Card with cost price( rubbish types - Organic, Paper, Plastic, Glass).
+     * @return True if it possibly to buy the chosen card, false otherwise.
      */
     public boolean affordable(Card card) {
         if (card instanceof PlumCard == false) {
