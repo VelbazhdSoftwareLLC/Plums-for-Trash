@@ -54,7 +54,6 @@ public class MarketActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_market);
 
-
         CARDS_IMAGES = GameActivity.CARDS_IMAGES;
 
         image = ((ImageView) findViewById(R.id.marketCard));

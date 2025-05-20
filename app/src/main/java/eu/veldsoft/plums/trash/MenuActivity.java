@@ -38,7 +38,7 @@ public class MenuActivity extends Activity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        MenuActivity.this.finish();
+                        finishAndRemoveTask();
                     }
                 }
         );
