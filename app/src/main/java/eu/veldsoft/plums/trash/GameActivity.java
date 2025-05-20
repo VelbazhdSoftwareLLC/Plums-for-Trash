@@ -18,7 +18,6 @@ import java.util.Map;
 
 import eu.veldsoft.plums.trash.model.Board;
 
-
 /**
  * Game screen is the most used window in the game.
  */
@@ -322,7 +321,8 @@ public class GameActivity extends Activity {
 
         if (requestCode == LAUNCH_VIEW_MARKET_ACTIVITY) {
             int index = data.getIntExtra("index", -1);
-            String key = data.getStringExtra(("key", "garbage_cards_v6_01");
+            String key = data.getStringExtra("key");
+            key = (key == null) ? "garbage_cards_v6_01" : key;
             String keys[] = board.lookupCurrentPlayerCards();
             startActivityForResult(new Intent(GameActivity.this,
                             SellCardsActivity.class).
@@ -330,7 +330,10 @@ public class GameActivity extends Activity {
                             putExtra("index", index).
                             putExtra("keys", keys)
                     , LAUNCH_SELL_CARDS_ACTIVITY);
+        }
 
+        if (requestCode == LAUNCH_SELL_CARDS_ACTIVITY) {
+            //TODO Implement trade functionality.
         }
     }
 
