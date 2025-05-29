@@ -45,7 +45,7 @@ class Player {
     /**
      * Reset the initial state of the player.
      */
-    public void reset() {
+    void reset() {
         for (Container c : containers) {
             c.reset();
         }
@@ -58,7 +58,7 @@ class Player {
      *
      * @return The name of the player.
      */
-    public String name() {
+    String name() {
         return name;
     }
 
@@ -67,7 +67,7 @@ class Player {
      *
      * @return The containers of the player.
      */
-    public List<Container> containers() {
+    List<Container> containers() {
         return containers;
     }
 
@@ -76,7 +76,7 @@ class Player {
      *
      * @param card Card to keep.
      */
-    public void keep(Card card) {
+    void keep(Card card) {
         for (Container c : containers) {
             if (!card.fitContainer(c.getClass())) {
                 continue;
@@ -87,13 +87,33 @@ class Player {
         }
     }
 
+    //TODO Homework add JavaDoc comment.
+
+    /**
+     * @param card
+     */
+    void give(Card card) {
+        for (Container c : containers) {
+            c.get(card);
+        }
+    }
+
+    //TODO Homework add JavaDoc comment.
+
+    /**
+     * @param card
+     */
+    void purchase(Card card) {
+        bought.add(card);
+    }
+
     /**
      * Retrieves all cards currently held, including bought cards and those from all containers.
      *
      * @return A list of {@code Card} objects representing all cards held. The list includes cards from
      * the {@code bought} collection and all cards from each {@code Container} in {@code containers}.
      */
-    public List<Card> allCards() {
+    List<Card> allCards() {
         List<Card> result = new ArrayList<>();
 
         result.addAll(bought);
@@ -110,7 +130,7 @@ class Player {
      * @param card Card with cost price( rubbish types - Organic, Paper, Plastic, Glass).
      * @return True if it possibly to buy the chosen card, false otherwise.
      */
-    public boolean affordable(Card card) {
+    boolean affordable(Card card) {
         if (card instanceof PlumCard == false) {
             return false;
         }

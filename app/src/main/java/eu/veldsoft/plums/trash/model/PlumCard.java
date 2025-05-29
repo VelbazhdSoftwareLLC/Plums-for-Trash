@@ -34,7 +34,7 @@ class PlumCard extends Card {
     /**
      * Plums value getter.
      */
-    public int value() {
+    int value() {
         return value;
     }
 
@@ -43,7 +43,7 @@ class PlumCard extends Card {
      *
      * @return Array of the used trash containers.
      */
-    public Class[] containers() {
+    Class[] containers() {
         return trash;
     }
 
@@ -53,7 +53,7 @@ class PlumCard extends Card {
      * @param container Container to check.
      * @return True if the card can fit in the container, false otherwise.
      */
-    public boolean fitContainer(Class container) {
+    boolean fitContainer(Class container) {
         if (container == SpecialContainer.class) {
             return true;
         }

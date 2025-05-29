@@ -15,7 +15,7 @@ abstract class Container {
     /**
      * Reset the initial state of the container.
      */
-    public void reset() {
+    void reset() {
         cards.clear();
     }
 
@@ -24,7 +24,7 @@ abstract class Container {
      *
      * @param card Card to put.
      */
-    public void put(Card card) {
+    void put(Card card) {
         cards.add(card);
     }
 
@@ -34,7 +34,7 @@ abstract class Container {
      * @param index Index of the card to get.
      * @return Card from the container.
      */
-    public Card get(int index) {
+    Card get(int index) {
         return cards.get(index);
     }
 
@@ -44,13 +44,12 @@ abstract class Container {
      * @param card Card to get.
      * @return Card from the container.
      */
-    public Card get(Card card) {
+    Card get(Card card) {
         if (!cards.contains(card)) {
-            throw new RuntimeException("The card is not in the container.");
+            return null;
         }
 
         cards.remove(card);
-
         return card;
     }
 
@@ -60,7 +59,7 @@ abstract class Container {
      *
      * @return a list of {@code Card} objects currently stored. Returns an empty list if no cards are present.
      */
-    public List<Card> get() {
+    List<Card> get() {
         return cards;
     }
 }

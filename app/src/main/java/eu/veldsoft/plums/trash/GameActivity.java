@@ -333,6 +333,14 @@ public class GameActivity extends Activity {
         }
 
         if (requestCode == LAUNCH_SELL_CARDS_ACTIVITY) {
+            /* The index of the card to buy from the market. */
+            int index = data.getIntExtra("index", -1);
+
+            /* Flags of the cards to sell. */
+            boolean sales[] = data.getBooleanArrayExtra("sales");
+
+            board.trade(index, sales);
+
             //TODO Implement trade functionality.
         }
     }

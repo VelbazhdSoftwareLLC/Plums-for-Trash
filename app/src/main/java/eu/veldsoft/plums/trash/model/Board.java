@@ -2,7 +2,9 @@ package eu.veldsoft.plums.trash.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -188,7 +190,6 @@ final public class Board {
         return keys;
     }
 
-
     /**
      * Retrieves the affordable slums for the current player.
      *
@@ -203,13 +204,68 @@ final public class Board {
 
         for (int i = 0; i < market.opened().size(); i++) {
             Card card = market.opened().get(i);
-
             affordable[i] = playing.affordable(card);
         }
 
         return affordable;
     }
 
+    /**
+     * Buy plums and sale trash.
+     *
+     * @param buy  Index of the card to buy form the market.
+     * @param sell Boolean flags of own cards to sell.
+     * @return True if the trade was successful, false otherwise.
+     */
+    public boolean trade(int buy, boolean[] sell) {
+        boolean[] affordable = cardsCanBuy();
+        if (affordable[buy] == false) {
+            //TODO Do better reporting for the failure.
+            return false;
+        }
+
+        /* Make histogram of the garbage needed for the trade. */
+        Map<Class, Integer> counters = new HashMap<>();
+        PlumCard check = (PlumCard) market.lookup(buy);
+        for (Class container : check.containers()) {
+            counters.put(container, counters.getOrDefault(container, 0) + 1);
+        }
+
+        List<Card> cards = playing.allCards();
+        if (cards.size() != sell.length) {
+            //TODO Do better reporting for the failure.
+            return false;
+        }
+
+        /* Subtract number of cards to sell. */
+        for (int i = 0; i < sell.length; i++) {
+            if (sell[i] == false) {
+                continue;
+            }
+
+            for (Container c : playing.containers()) {
+                //TODO The card can fit more than one container.
+                if (cards.get(i).fitContainer(c.getClass()) == false) {
+                    continue;
+                }
+
+                counters.put(c.getClass(), counters.get(c.getClass()) - 1);
+            }
+        }
+
+        /* Check for fair trade. */
+        for (Class key : counters.keySet()) {
+            //TODO Do better reporting for the failure.
+            if (counters.get(key) != 0) {
+                return false;
+            }
+        }
+
+        /* Do the trading. */
+        playing.purchase(market.take(buy));
+
+        return true;
+    }
 
     /**
      * Retrieves the name of the current player.

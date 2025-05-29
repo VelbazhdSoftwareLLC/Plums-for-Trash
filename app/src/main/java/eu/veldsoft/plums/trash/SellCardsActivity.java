@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
@@ -23,6 +24,11 @@ public class SellCardsActivity extends Activity {
      * Map of the card key and card image reference.
      */
     private static Map<String, Integer> CARDS_IMAGES = new HashMap<>();
+
+    /**
+     * The index of the card in the market to buy.
+     */
+    private int index = -1;
 
     /**
      * Array with cards' keys.
@@ -64,9 +70,10 @@ public class SellCardsActivity extends Activity {
 
         CARDS_IMAGES = GameActivity.CARDS_IMAGES;
 
-        buy = ((ImageView) findViewById(R.id.cardToBuy));
-        sell = ((ImageView) findViewById(R.id.cardForSale));
+        buy = findViewById(R.id.cardToBuy);
+        sell = findViewById(R.id.cardForSale);
         bar = findViewById(R.id.salesScroller);
+        marked = findViewById(R.id.sellIt);
 
         bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -89,10 +96,18 @@ public class SellCardsActivity extends Activity {
             }
         });
 
+        marked.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                sales[bar.getProgress()] = isChecked;
+            }
+        });
+
         ((Button) findViewById(R.id.cardsSelectedButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setResult(Activity.RESULT_OK, (new Intent()).
+                        putExtra("index", index).
                         putExtra("sales", sales));
                 SellCardsActivity.this.finish();
             }
@@ -109,10 +124,13 @@ public class SellCardsActivity extends Activity {
         keys = getIntent().getStringArrayExtra("keys");
         sales = new boolean[keys.length];
 
+        /* Index of the card to by from the market. */
+        index = getIntent().getIntExtra("index", -1);
+
         String key = getIntent().getStringExtra("key");
         key = (key == null) ? "garbage_cards_v6_01" : key;
-        buy.setImageResource(CARDS_IMAGES.get(key));
 
+        buy.setImageResource(CARDS_IMAGES.get(key));
         if (keys != null && keys.length > 0) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 bar.setMin(0);

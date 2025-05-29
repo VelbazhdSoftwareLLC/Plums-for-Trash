@@ -6,6 +6,13 @@
     android:orientation="vertical"
     tools:context=".PlayerCardsActivity">
 
+    <Button
+        android:id="@+id/cardsSelectedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/done_caption" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_gravity="center"
@@ -38,11 +45,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@drawable/garbage_cards_v6_01" />
-
-    <Button
-        android:id="@+id/cardsSelectedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/done_caption" />
 
 </LinearLayout>
