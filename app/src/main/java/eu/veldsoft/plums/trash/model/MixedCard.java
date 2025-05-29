@@ -32,7 +32,7 @@ class MixedCard extends Card {
      * @return True if the card can fit in the container, false otherwise.
      */
     @Override
-    public boolean fitContainer(Class container) {
+    boolean fitContainer(Class container) {
         for (Class c : trash) {
             if (c == container) {
                 return true;

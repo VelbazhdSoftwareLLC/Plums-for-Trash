@@ -21,7 +21,7 @@ abstract class Deck {
     /**
      * Reset the initial state of the deck.
      */
-    public void reset() {
+    void reset() {
         cards = new ArrayList<>(CARDS);
         Collections.shuffle(cards);
     }
@@ -32,7 +32,7 @@ abstract class Deck {
      * @return The card pulled.
      * @throws RuntimeException If the deck is empty.
      */
-    public Card pull() {
+    Card pull() {
         if (cards == null || cards.isEmpty()) {
             throw new RuntimeException("The deck is empty!");
         }
@@ -45,8 +45,7 @@ abstract class Deck {
      *
      * @return True if the deck is empty, false otherwise.
      */
-    public boolean isEmpty() {
+    boolean isEmpty() {
         return cards.isEmpty();
     }
-
 }

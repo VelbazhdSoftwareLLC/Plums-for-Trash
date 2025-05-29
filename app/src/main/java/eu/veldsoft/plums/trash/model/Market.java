@@ -40,7 +40,7 @@ class Market {
     /**
      * Reset the initial state of the market.
      */
-    public void reset() {
+    void reset() {
         deck.reset();
         closed.clear();
         opened.clear();
@@ -61,7 +61,7 @@ class Market {
      * @return Card taken from the market.
      * @throws RuntimeException If the market is empty or index is out of bounds.
      */
-    public Card take(int index) {
+    Card take(int index) {
         if (opened.isEmpty()) {
             throw new RuntimeException("The market is empty.");
         }
@@ -76,5 +76,24 @@ class Market {
         }
 
         return card;
+    }
+
+    /**
+     * Take a card from the market.
+     *
+     * @param index Index of the card to take.
+     * @return Card lookup from the market.
+     * @throws RuntimeException If the market is empty or index is out of bounds.
+     */
+    Card lookup(int index) {
+        if (opened.isEmpty()) {
+            throw new RuntimeException("The market is empty.");
+        }
+
+        if (index < 0 || index >= opened.size()) {
+            throw new RuntimeException("The index is out of bounds.");
+        }
+
+        return opened.get(index);
     }
 }
