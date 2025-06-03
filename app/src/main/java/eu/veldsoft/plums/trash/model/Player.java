@@ -82,15 +82,15 @@ class Player {
                 continue;
             }
 
-            /* Have in mind that a single  card can appear in many containers */
+            /* Have in mind that a single card can appear in many containers */
             c.put(card);
         }
     }
 
-    //TODO Homework add JavaDoc comment.
-
     /**
-     * @param card
+     * TODO Homework - comment!
+     *
+     * @param card, Card object to be given to each container.
      */
     void give(Card card) {
         for (Container c : containers) {
@@ -98,10 +98,10 @@ class Player {
         }
     }
 
-    //TODO Homework add JavaDoc comment.
-
     /**
-     * @param card
+     * Adds the chosen card to the list of player's cards.
+     *
+     * @param card, object to be marked as purchased
      */
     void purchase(Card card) {
         bought.add(card);
@@ -149,5 +149,16 @@ class Player {
         }
 
         return true;
+    }
+
+    /**
+     * Get trash cards from the player.
+     *
+     * @param bill List of cards to be used for paying the bill.
+     */
+    public void pay(List<Card> bill) {
+        for (Container c : containers) {
+            c.takeOut(bill);
+        }
     }
 }

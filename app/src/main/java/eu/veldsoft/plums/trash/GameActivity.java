@@ -339,9 +339,11 @@ public class GameActivity extends Activity {
             /* Flags of the cards to sell. */
             boolean sales[] = data.getBooleanArrayExtra("sales");
 
-            board.trade(index, sales);
-
-            //TODO Implement trade functionality.
+            if (board.trade(index, sales) == true) {
+                Toast.makeText(GameActivity.this, R.string.trading_success_text, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(GameActivity.this, R.string.trading_unsuccess_text, Toast.LENGTH_LONG).show();
+            }
         }
     }
 

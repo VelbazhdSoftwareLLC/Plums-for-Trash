@@ -238,10 +238,14 @@ final public class Board {
         }
 
         /* Subtract number of cards to sell. */
+        List<Card> bill = new ArrayList<>();
         for (int i = 0; i < sell.length; i++) {
             if (sell[i] == false) {
                 continue;
             }
+
+            /* Form the list of the cards for paying the bill. */
+            bill.add(cards.get(i));
 
             for (Container c : playing.containers()) {
                 //TODO The card can fit more than one container.
@@ -263,6 +267,7 @@ final public class Board {
 
         /* Do the trading. */
         playing.purchase(market.take(buy));
+        playing.pay(bill);
 
         return true;
     }
