@@ -55,4 +55,6 @@ Sofia, Bulgaria
     <string name="first_card_is_not_proper_for_selection_text">First card is not proper for selection!</string>
     <string name="second_card_is_not_proper_for_selection_text">Second card is not proper for selection!</string>
     <string name="can_not_buy_text">You can not buy this card!</string>
+    <string name="trading_success_text">Trading was successful!</string>
+    <string name="trading_unsuccess_text">Trading was not successful!</string>
 </resources>

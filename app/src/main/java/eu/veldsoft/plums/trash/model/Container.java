@@ -53,7 +53,6 @@ abstract class Container {
         return card;
     }
 
-
     /**
      * Retrieves the list of all cards.
      *
@@ -61,5 +60,16 @@ abstract class Container {
      */
     List<Card> get() {
         return cards;
+    }
+
+    /**
+     * TODO Homework - comment.
+     *
+     * @param bill
+     */
+    public void takeOut(List<Card> bill) {
+        for (Card card : bill) {
+            cards.remove(card);
+        }
     }
 }
